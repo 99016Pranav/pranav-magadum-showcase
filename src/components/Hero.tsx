@@ -7,13 +7,27 @@ const Hero = () => {
     document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const downloadResume = () => {
+    // Create a link to download the resume
+    const link = document.createElement('a');
+    link.href = '/lovable-uploads/5e317054-4044-44ae-8b3e-8522b8afe0f0.png';
+    link.download = 'Pranav_R_Magadum_Resume.png';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="animate-fade-in">
           <div className="mb-8">
-            <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl font-bold text-white shadow-2xl">
-              PM
+            <div className="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden shadow-2xl">
+              <img 
+                src="/lovable-uploads/5689c22f-ae7c-451b-b22c-2db53c72830c.png" 
+                alt="Pranav R. Magadum"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
           
@@ -35,6 +49,7 @@ const Hero = () => {
             <Button 
               size="lg" 
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3"
+              onClick={downloadResume}
             >
               <Download className="mr-2 h-5 w-5" />
               Download Resume

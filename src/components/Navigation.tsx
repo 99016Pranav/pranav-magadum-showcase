@@ -17,6 +17,7 @@ const Navigation = () => {
   const navItems = [
     { href: "#home", label: "Home" },
     { href: "#about", label: "About" },
+    { href: "#about", label: "Education" },
     { href: "#experience", label: "Experience" },
     { href: "#projects", label: "Projects" },
     { href: "#skills", label: "Skills" },
@@ -43,7 +44,7 @@ const Navigation = () => {
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
               <button
-                key={item.href}
+                key={item.href + item.label}
                 onClick={() => scrollToSection(item.href)}
                 className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
               >
@@ -67,7 +68,7 @@ const Navigation = () => {
             <div className="py-4 space-y-2">
               {navItems.map((item) => (
                 <button
-                  key={item.href}
+                  key={item.href + item.label}
                   onClick={() => scrollToSection(item.href)}
                   className="block w-full text-left px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200"
                 >
