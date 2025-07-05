@@ -33,8 +33,8 @@ const Navigation = () => {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${
       scrolled 
-        ? "bg-white/90 backdrop-blur-xl shadow-xl border-b border-gray-100" 
-        : "bg-transparent"
+        ? "bg-white/95 backdrop-blur-xl shadow-xl border-b border-gray-200" 
+        : "bg-white/80 backdrop-blur-md shadow-lg"
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
@@ -69,7 +69,7 @@ const Navigation = () => {
 
         {/* Mobile Navigation Menu */}
         {isOpen && (
-          <div className="md:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100 rounded-b-xl shadow-xl">
+          <div className="md:hidden bg-white/98 backdrop-blur-xl border-t border-gray-100 rounded-b-xl shadow-xl">
             <div className="py-4 space-y-1">
               {navItems.map((item) => (
                 <button
