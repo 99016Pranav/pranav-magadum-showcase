@@ -31,31 +31,36 @@ const Navigation = () => {
   };
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      scrolled ? "bg-white/95 backdrop-blur-sm shadow-lg" : "bg-transparent"
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+      scrolled 
+        ? "bg-white/90 backdrop-blur-xl shadow-xl border-b border-gray-100" 
+        : "bg-transparent"
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Pranav R. Magadum
+          <div className="text-2xl font-bold">
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Pranav R. Magadum
+            </span>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-1">
             {navItems.map((item) => (
               <button
                 key={item.href + item.label}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
+                className="px-4 py-2 text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium rounded-lg hover:bg-blue-50 relative group"
               >
                 {item.label}
+                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
               </button>
             ))}
           </div>
 
           {/* Mobile Navigation Toggle */}
           <button
-            className="md:hidden"
+            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -64,13 +69,13 @@ const Navigation = () => {
 
         {/* Mobile Navigation Menu */}
         {isOpen && (
-          <div className="md:hidden bg-white/95 backdrop-blur-sm border-t">
-            <div className="py-4 space-y-2">
+          <div className="md:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100 rounded-b-xl shadow-xl">
+            <div className="py-4 space-y-1">
               {navItems.map((item) => (
                 <button
                   key={item.href + item.label}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200"
+                  className="block w-full text-left px-6 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-300 font-medium"
                 >
                   {item.label}
                 </button>
